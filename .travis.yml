@@ -1,0 +1,18 @@
+sudo: required
+dist: trusty
+services:
+    - docker
+before_install:
+    - docker build -f Dockerfile . -t richard1122/docker-shadowsocks-kcp-obfs:latest
+    - docker build -f Dockerfile.client . -t richard1122/docker-shadowsocks-kcp-obfs:client
+
+script:
+    - docker tag richard1122/docker-shadowsocks-kcp-obfs:latest richard1122/docker-shadowsocks-kcp-obfs:server-${TRAVIS_COMMIT}
+    - docker tag richard1122/docker-shadowsocks-kcp-obfs:client richard1122/docker-shadowsocks-kcp-obfs:client-${TRAVIS_COMMIT}
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+    - docker push richard1122/docker-shadowsocks-kcp-obfs:latest
+    - docker push richard1122/docker-shadowsocks-kcp-obfs:client
+env:
+    global:
+        - secure: PeM34XIK4fymDjPnCrJjcO2UyFLBL24hk58QWVp03KcndHlV7n7cm4wolCfCTQsxMXS1CZanhZjaoZ8HevMAVcyFNAlOThmDDje0Bgb43JTDT8AuXpskhxewxZwohdI9lPmW4qGuoZaWFzr+N1SHmUCVhRydddcoSEnAtSZcBQ1p4SX21rC86HC9JEx9lWLsyd55ALW1fJVwtBnIsW6hec6OpWTYWuZE8ME/KBnjxkEn+5UN2W2Mw0DRupT6qOyGpyk8YBpwPGXOAT72uilTkKqnKKXgNYKwG1Tc9pqc8WyH2QIQrfiqbxVh46pa+3Ur8jVyBy6+hR0m/5wZUr1vO+AssQWQxRKWyFeJcfmdBAA8pqEv/ntyhSiTrhAM1YssYPb3HYC5cKqVWIPFiAl2tiQRIvWkBL7iHnVMlGGn2ttc+yxpyp5MkoMpdrwd/4YNSHieokl0PORKWOPGaWzjkm1piXnySi2vuI68HsGHx+xS7ZfhFCyktaQ+57Mbt7aYyQ9rH/qWN3HPhISeTOjC+KBA8OYkTA5+rneAECyy129hjoX4dSc6Qau0k5EvZTg/Iikw581hnqU2oPmjzJclgf2D2eATy97Q/mzv5jg9TEMm8gabnehS4UjRPfU1H2QpyfO2PNGn3BcWzGjGdL2bk0/5BlrgZcw5VUBC+ulF8/c=
+        - secure: UDx+l72SnQPTek9+RWYzN3ZIESPJ65u0Q2L0ydiah+0CynVfplZP6XVgOk0qsA9Ntmvksv4R0nON48a4b60VZ8IKGhX2hHlfdhPxrH6UbzWQUit3AQxt+xMcx/oaIz3O0TZ8flnaisLsWmn3rbyYamiV1hJU94cu0lY9a6YBxxgCeW2bOnwZQsswkcDAlyIBgHtIuHpEwnMV9i/8wDw/ONX3mFs4w2yJTw42BrmSsBLL9rElyfQEhhBga2BNJEkIeh43HqPVWFS9/6GO2bOi9yYjD1F9E0WW/nmpmR2faCzr7y/ZEqAK4a9+cKonhiN9jwBod44rnAVhl2zqb2P81kmZoNz1bl0zeARevI7JlYIDeSXPDhN49TzDM6l+OYyVKfIz9E0edKsK9j91QYzt3UUgLIGjz7Cq0Y8YVzijWrqE+wTgWPSye0Lqr5U37bytw0iKjcxFnTTnxiYQm5ofqSK9mHXXx27ono0kBNpdZyu6VvmpeddwYQlUMJSumCn6RUbz8PYzceNcML3eXBuWatqLOusxpcH6aQYfaiCY9Mq6oGROXwFOKBI04BiNpFiv0l8Dms7+fzZ4ISTzYO9NKicl+gROkWxT5jDcT/z31FD2T4upvxqzzI3KQVq1t7fXiJQ9GmSA8oj51van3qo4GV+ysj4Sh5LP+9Y9b0ZmyIc=

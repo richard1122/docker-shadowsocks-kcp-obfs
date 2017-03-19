@@ -2,7 +2,9 @@
 
 A shadowsocks-libev docker image with kcptun and obfs config.
 
-# env
+For more envs related to shadowsocks-libev please refer to https://github.com/EasyPi/docker-shadowsocks-libev
+
+## SERVER
 
 * KCP_MTU=1350 
 * KCP_MODE=fast 
@@ -13,4 +15,10 @@ A shadowsocks-libev docker image with kcptun and obfs config.
 * TIMEOUT=600
 * OBFS=http
 
-For more envs related to shadowsocks-libev please refer to https://github.com/EasyPi/docker-shadowsocks-libev
+## CLIENT
+
+* SERVER_HOST
+* SERVER_PORT
+* PASSWORD
+* METHOD
+* TIMEOUT
