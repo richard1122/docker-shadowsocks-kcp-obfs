@@ -1,2 +1,2 @@
-FROM easypi/shadowsocks-libev
+FROM richard1122/docker-shadowsocks-kcp-obfs:latest
 CMD ss-client -l 1080 -s "$SERVER_HOST" -p "$SERVER_PORT" -k "$PASSWORD" -m "$METHOD" -t "$TIMEOUT" -u $OPTIONS
