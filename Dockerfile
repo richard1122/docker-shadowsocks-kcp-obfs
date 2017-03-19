@@ -17,7 +17,8 @@ RUN apk add --no-cache libcrypto1.0 libsodium libev python py-pip \
 	&& mkdir -p /opt/kcptun \
 	&& cd /opt/kcptun \
 	&& tar xvfz /root/kcptun-linux-amd64.tar.gz \
-	&& rm /root/kcptun-linux-amd64.tar.gz
+	&& rm /root/kcptun-linux-amd64.tar.gz \
+    && apk del TMP
 COPY supervisord.conf /etc/supervisord.conf
 ENV KCP_MTU=1350 KCP_MODE=fast KCP_KEY=123456789 KCP_DATASHARED=10 KCP_PARITYSHARED=3 KCP_SNDWND=128 TIMEOUT=600 OBFS=http
 EXPOSE 41111/udp 8139

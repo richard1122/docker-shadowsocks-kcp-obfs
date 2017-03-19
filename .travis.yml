@@ -11,6 +11,8 @@ script:
 - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 - docker push richard1122/docker-shadowsocks-kcp-obfs:latest
 - docker push richard1122/docker-shadowsocks-kcp-obfs:client
+- docker push richard1122/docker-shadowsocks-kcp-obfs:server-${TRAVIS_COMMIT}
+- docker push richard1122/docker-shadowsocks-kcp-obfs:client-${TRAVIS_COMMIT}
 env:
   global:
   - secure: NRkk6EDrirQPbHYb8AWowAJlzr/SurrUoz6G46umCu4ACdPdUuLpFpFoGurhzVqdmIcDpedjMDV3we6fDErd55IG7JX1YqOf7KJ/Z1kfIP2QPghCmoY5vZ2R7wQI5krv5hseJXdVENKVFKaOXtFmjNN9sGBCSHM46NqHYDRfAnIXGXPNkvzJXVmu/OP7V03qEHbuTlKzv2CRygxNcMwvIRCiWru1NBYpOvrBSgPn0WN9GoEPVcNyKvrY9Z9p7cQ5d1Dmefa93Fn1mhZrN/D/Gl3KCtGEpKGkACCGpojxZ25XrToSMaBaWH30Rl/t4xe28OInQEI9Q4PXhW3UA4lD6WUdCZE/GM+TFjQwM3tiJl5dtKmLfQPTpa8E1Rev7IoBLa2cjSGGr+Vh8I0k7A5roYXRzuXiVf+vnnsH2HSdXB07VwfGleV/0Aim0LCYeqOpPvOeMW0ePaWJkrC1GrT7DRMLbku2J1qJ5iXx3jqbnqe3zh4mx5xJyHeDAVH3AHsiWm++8Nb65v/tBH4Wqr8lQUMFZrU/rNOhODPL6z2ZfnY/kXsq2/s94lFGhkDMcF9ogaYIrCjzU1AYrld9pAYtmWdXhrkQmNuqd0esiY3xixfe3jCvJ+R480LTzSfwD99ebVuDOd89FgUyWMOhQgcp79fkACU1sbpROLsNaBe1bBA=
