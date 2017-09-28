@@ -1,8 +1,8 @@
 FROM easypi/shadowsocks-libev
 ENV KCP_VER 20170904
 
-RUN apk add --no-cache libcrypto1.0 libsodium libev python py-pip \
-    && apk add --no-cache --virtual TMP autoconf automake build-base libtool asciidoc xmlto linux-headers openssl-dev libsodium-dev udns-dev libc-ares-dev libev-dev wget git \
+RUN apk add --no-cache libcrypto1.0 libsodium libev python py-pip c-ares-dev \
+    && apk add --no-cache --virtual TMP autoconf automake build-base libtool asciidoc xmlto linux-headers openssl-dev libsodium-dev udns-dev libev-dev wget git \
     && git clone https://github.com/shadowsocks/simple-obfs \
     && cd simple-obfs \
     && git submodule update --init --recursive \
