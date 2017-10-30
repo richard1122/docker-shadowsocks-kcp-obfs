@@ -15,10 +15,8 @@ For more envs related to shadowsocks-libev please refer to https://github.com/Ea
 * TIMEOUT=600
 * OBFS=http
 
-## CLIENT
+## PORTS
 
-* SERVER_HOST
-* SERVER_PORT
-* PASSWORD
-* METHOD
-* TIMEOUT
+* Shadowsocks libev: 8388
+* Simple obfs: 8139
+* KCP: 41111/udp
