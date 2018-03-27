@@ -1,10 +1,8 @@
 # shadowsocks-libev docker
 
-A shadowsocks-libev docker image with kcptun and obfs config.
+This is a docker configuration for shadowsocks-libev, kcptun, and obfs. The configuration inherits the system environment variables which are specified in https://github.com/EasyPi/docker-shadowsocks-libev.
 
-For more envs related to shadowsocks-libev please refer to https://github.com/EasyPi/docker-shadowsocks-libev
-
-## SERVER
+## Default Environment Variables
 
 * KCP_MTU=1350 
 * KCP_MODE=fast 
@@ -15,7 +13,9 @@ For more envs related to shadowsocks-libev please refer to https://github.com/Ea
 * TIMEOUT=600
 * OBFS=http
 
-## PORTS
+You may modify them use following code `export VAR=VALUE` in bash.
+
+## Ports
 
 * Shadowsocks libev: 8388
 * Simple obfs: 8139
